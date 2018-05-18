@@ -11,11 +11,8 @@
 <body style='margin : 0px; overflow: hidden;'>
 	<a-scene embedded arjs='trackingMethod: best;'>
         <a-marker-camera type='hiro'>
-<!--    <a-scene>-->
         <a-entity scale=".4 .4 .4" rotation="-0">
-            <a-sky color="#ECECEC"></a-sky>
-            <a-plane color="lightblue" height="2" width="4" rotation="-90 0 0"></a-plane>
-<!--            <a-box id="char" height=".2" width=".2" depth=".2" position="0 0 0"></a-box>-->
+            <a-plane id="floor" color="lightblue" height="1" width="1" rotation="-90 0 0"></a-plane>
         <a-entity id="hidden" visible=false>
         <a-entity id="words">
         <a-entity id="happy" position="0 3 0">
@@ -96,12 +93,12 @@
         </a-entity>
         </a-entity>
         
-<!--    </a-scene>-->
         </a-marker-camera>
     </a-scene>
     
     <div style="z-index: 9999; visibility: visible; position: fixed; bottom: 0; width: 100%">
-        <button id="start" style="background-color: aqua; border: none; color: white; padding: 50px 80px; text-align: center; text-decoration: none; font-size: 32px; border-radius: 25%; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); margin:0 50%; display: block;" onclick="getElementById('hidden').setAttribute('visible', 'true'); this.style.display = 'none'; document.querySelector('#words').emit('animstart');">Start</button>
+        <button id="start" style="background-color: aqua; border: none; color: white; padding: 50px 80px; text-align: center; text-decoration: none; font-size: 32px; border-radius: 25%; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); margin:0 50%; display: block;" onclick="getElementById('hidden').setAttribute('visible', 'true'); this.style.display = 'none'; document.querySelector('#words').emit('animstart');getElementById('floor').setAttribute('visible', 'false');">Start</button>
+        
         <marquee behavior="scroll" direction="left" style="color: orangered; font-size: 32;">May God Have Mercy Upon Your Soul</marquee>
     </div>
     
