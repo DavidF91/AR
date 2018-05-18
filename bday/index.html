@@ -10,8 +10,11 @@
 
 <body style='margin : 0px; overflow: hidden;'>
 	<a-scene embedded arjs='trackingMethod: best;'>
+        <a-assets>
+            <a-asset-item id="ducky" src="ducky.obj"></a-asset-item>
+        </a-assets>
         <a-marker-camera type='hiro'>
-        <a-entity scale=".4 .4 .4" rotation="-0">
+        <a-entity scale=".4 .4 .4" rotation="-90">
             <a-plane id="floor" color="lightblue" height="1" width="1" rotation="-90 0 0"></a-plane>
         <a-entity id="hidden" visible=false>
         <a-entity id="words">
@@ -82,9 +85,13 @@
             <a-box height=".6" width=".2" depth=".2" position="-.5 2.2 0"></a-box>
             <a-box height=".2" width=".4" depth=".2" position="-.37 1.6 0"></a-box>
         </a-entity>
-            <a-animation attribute="scale" dur="15000" from="1 0a 1" to="1 1 1" repeat="0" begin="animstart"></a-animation>
+            <a-animation attribute="scale" dur="15000" from="1 0 1" to="1 1 1" repeat="0" begin="animstart"></a-animation>
         </a-entity>
         
+        <a-entity obj-model="obj: ducky.obj" scale=".005 .005 .005" material="color: yellow" position="1.5 .3 1.5">
+            <a-animation attribute="rotation" dur="5000" from="0 0 0" to ="0 360 0" repeat="infinite"></a-animation>
+        </a-entity>
+            
         <a-entity id="fireworks">
             <a-entity position="-1.5 .3 -1" particle-system="preset: stars; type: sphere; color: #FF0000,#0000FF,#00FF00; particleCount: 100;"></a-entity>
             <a-entity position="0 .3 -1" particle-system="preset: stars; type: sphere; color: #0000FF,#00FF00,#FF0000; particleCount: 100;"></a-entity>
