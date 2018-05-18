@@ -11,11 +11,12 @@
 	<a-scene embedded arjs='trackingMethod: best;'>
         <a-marker-camera type='hiro'>
 <!--    <a-scene>-->
-        <a-entity rotation="-90">
+        <a-entity scale="" rotation="-0">
             <a-sky color="#ECECEC"></a-sky>
             <a-plane color="lightblue" height="2" width="4" rotation="-90 0 0"></a-plane>
-            <a-box id="char" height=".2" width=".2" depth=".2" position="0 0 0"></a-box>
-        
+<!--            <a-box id="char" height=".2" width=".2" depth=".2" position="0 0 0"></a-box>-->
+        <a-entity id="hidden" visible=false>
+        <a-entity id="words">
         <a-entity id="happy" position="0 3 0">
             <a-box height="1" width=".2" depth=".2" position="-1.87 .5 0"></a-box>
             <a-box height=".2" width=".4" depth=".2" position="-1.67 .5 0"></a-box>
@@ -83,9 +84,14 @@
             <a-box height=".6" width=".2" depth=".2" position="-.5 2.2 0"></a-box>
             <a-box height=".2" width=".4" depth=".2" position="-.37 1.6 0"></a-box>
         </a-entity>
+            <a-animation attribute="scale" dur="15000" from="1 0a 1" to="1 1 1" repeat="0" begin="animstart"></a-animation>
+        </a-entity>
         
         <a-entity id="fireworks">
-            <a-entity position="0 4 0" particle-system="preset: stars; type: sphere; color: #FF0000,#0000FF,#00FF00;"></a-entity>
+            <a-entity position="-1.5 .3 -1" particle-system="preset: stars; type: sphere; color: #FF0000,#0000FF,#00FF00; particleCount: 300;"></a-entity>
+            <a-entity position="0 .3 -1" particle-system="preset: stars; type: sphere; color: #0000FF,#00FF00,#FF0000; particleCount: 300;"></a-entity>
+            <a-entity position="1.5 .3 -1" particle-system="preset: stars; type: sphere; color: #00FF00,#FF0000,#0000FF; particleCount: 300;"></a-entity>
+        </a-entity>
         </a-entity>
         </a-entity>
         
@@ -93,33 +99,39 @@
         </a-marker-camera>
     </a-scene>
     
+    <div style="z-index: 9999; visibility: visible; position: fixed; bottom: 0; width: 100%">
+        <button id="start" style="background-color: aqua; border: none; color: white; padding: 50px 80px; text-align: center; text-decoration: none; font-size: 32px; border-radius: 25%; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); right: 50%; margin: auto; display: block;" onclick="getElementById('hidden').setAttribute('visible', 'true'); this.style.display = 'none'; document.querySelector('#words').emit('animstart');">Start</button>
+    </div>
+    
     <script>
-        var pos = 0;
+//        var pos = 0;
+//        
+//        document.onkeydown = checkKey;
+//
+//        function checkKey(e) {
+//            e = e || window.event;
+//
+//            if (e.keyCode == '38') {
+//                // up arrow
+//            }
+//            else if (e.keyCode == '40') {
+//                // down arrow
+//            }
+//            else if (e.keyCode == '37') {
+//               // left arrow
+//               pos -=.1
+//            }
+//            else if (e.keyCode == '39') {
+//               // right arrow
+//                pos +=.1
+//            }
+//            
+//            document.getElementById("char").setAttribute("position", "0 0 " + pos);
+//
+//        }
+        var button = document.getElementById('start');
         
-        document.onkeydown = checkKey;
-
-        function checkKey(e) {
-
-            e = e || window.event;
-
-            if (e.keyCode == '38') {
-                // up arrow
-            }
-            else if (e.keyCode == '40') {
-                // down arrow
-            }
-            else if (e.keyCode == '37') {
-               // left arrow
-               pos -=.1
-            }
-            else if (e.keyCode == '39') {
-               // right arrow
-                pos +=.1
-            }
-            
-            document.getElementById("char").setAttribute("position", "0 0 " + pos);
-
-        }
+        
         
     </script>
 </body>
