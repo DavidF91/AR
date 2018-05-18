@@ -1,5 +1,6 @@
 <!-- Initial 10 lines written by Jerome Etienne. Source = https://codepen.io/jeromeetienne/pen/mRqqzb -->
 <head>
+    <meta name="viewport" content="width=800" />
     <title>Happy Birthday</title>
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
@@ -100,7 +101,8 @@
     </a-scene>
     
     <div style="z-index: 9999; visibility: visible; position: fixed; bottom: 0; width: 100%">
-        <button id="start" style="background-color: aqua; border: none; color: white; padding: 50px 80px; text-align: center; text-decoration: none; font-size: 32px; border-radius: 25%; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); right: 50%; margin: auto; display: block;" onclick="getElementById('hidden').setAttribute('visible', 'true'); this.style.display = 'none'; document.querySelector('#words').emit('animstart');">Start</button>
+        <button id="start" style="background-color: aqua; border: none; color: white; padding: 50px 80px; text-align: center; text-decoration: none; font-size: 32px; border-radius: 25%; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); margin:0 50%; display: block;" onclick="getElementById('hidden').setAttribute('visible', 'true'); this.style.display = 'none'; document.querySelector('#words').emit('animstart');">Start</button>
+        <marquee behavior="scroll" direction="left" style="color: orangered; font-size: 32;">May God Have Mercy Upon Your Soul</marquee>
     </div>
     
     <script>
@@ -130,6 +132,13 @@
 //
 //        }
         var button = document.getElementById('start');
+        var boxes = document.querySelectorAll("a-box");
+        
+        for(var i=0; i<boxes.length; i++){
+            boxes[i].setAttribute('color', 'red');
+        }
+        
+        
         
         
         
